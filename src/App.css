@@ -1,11 +1,15 @@
 .App {
   text-align: center;
-  margin-top: 200px;
+  padding-top: 50px;
+  min-height: 548px;
+  background-image: linear-gradient(white,#93a818);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button{
+  margin: 0px 10px;
+  background-color: #4bf542;
+  border: none;
+  border-radius: 8px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,11 +33,4 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

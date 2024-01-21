@@ -47,7 +47,7 @@ function App() {
           <button style={{ height: '30px', width: '150px' }} onClick={sendMessage}>send message</button>
           <h3>Messages</h3>
           {
-            received ? <h4>{received}</h4> : null
+            received ? <li>{received}</li> : null
           }
         </div> : null
       }

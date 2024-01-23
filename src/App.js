@@ -72,7 +72,7 @@ function App() {
     <div className="App">
       <h1>Private Chat App</h1>
       <br />
-      <input placeholder='Enter room number to join' value={room} style={{ height: '30px', width: '250px' }} onChange={(e) => { setRoom(e.target.value) }} />
+      <input placeholder='Enter room code to join'  value={room} style={{ height: '30px', width: '250px' }} onChange={(e) => { setRoom(e.target.value) }} />
       <button style={{ height: '30px', width: '150px' }} onClick={joinRoom}>Join Private room</button>
       {
         roomno ? <div>

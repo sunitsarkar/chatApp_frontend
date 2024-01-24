@@ -2,8 +2,8 @@ import './App.css';
 import io from 'socket.io-client'
 import { useState, useEffect } from 'react'
 
-// const socket = io.connect("http://localhost:8000");
-const socket=io.connect("https://chatapp-backend-qmqc.onrender.com");
+const socket = io.connect("http://localhost:8000");
+// const socket=io.connect("https://chatapp-backend-qmqc.onrender.com");
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     }
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (message) {
       if (sessionStorage.message) {
         sessionStorage.message = `${sessionStorage.message}$${JSON.stringify({
@@ -40,6 +40,11 @@ function App() {
           message: message,
           room: room
         });
+        setStoredMessage([{
+          author:"you",
+          message: message,
+          room: room
+        }])
 
       }
       socket.emit('message', {
@@ -62,7 +67,9 @@ function App() {
         console.log(sessionStorage.message)
       } else {
         sessionStorage.message = JSON.stringify({...data,"author":"sender"});
-
+        setStoredMessage(sessionStorage.message.split('$').map((a) => {
+          return JSON.parse(a)
+        }))
       }
     })
 

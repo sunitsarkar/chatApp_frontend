@@ -2,8 +2,8 @@ import './App.css';
 import io from 'socket.io-client'
 import { useState, useEffect } from 'react'
 
-const socket = io.connect("http://localhost:8000");
-// const socket=io.connect("https://chatapp-backend-qmqc.onrender.com");
+// const socket = io.connect("http://localhost:8000");
+const socket=io.connect("https://chatapp-backend-qmqc.onrender.com");
 
 
 function App() {

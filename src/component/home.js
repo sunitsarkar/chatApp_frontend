@@ -92,7 +92,7 @@ function Main() {
           <div className='message-section' ref={divRef}>
           {
             storedMessages.map((item, idx) => {
-              return <li key={idx} className={item.author} ><span>{item.author}</span>--{item.message}</li>
+              return <p key={idx} className={item.author} >{item.message}</p>
             })
           }
           </div>

@@ -66,6 +66,13 @@
       border: none;
       border-radius: 8px;
     }
+
+    .message-section{
+      justify-content: center;
+      height: 500px;
+      width: 80%;
+      overflow-y: scroll;
+    }
   }
   
   

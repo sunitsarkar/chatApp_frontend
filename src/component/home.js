@@ -13,7 +13,7 @@ function Main() {
   const [room, setRoom] = useState('');
   const [roomno, setRoomno] = useState(false);
   const [storedMessages, setStoredMessage] = useState([]);
-  const divRef = useRef();
+  const divRef = useRef(null);
 
   const joinRoom = () => {
     if (room !== "") {
@@ -55,10 +55,10 @@ function Main() {
     setMessage('')
   }
 
-  // useEffect(() => {
-  //   // Scroll to the bottom of the div when new data is added
-  //   divRef.current.scrollTop = divRef.current.scrollHeight;
-  // }, [storedMessages]);
+  useEffect(() => {
+    // Scroll to the bottom of the div when new data is added
+    divRef.current?.scrollIntoView()
+  }, [storedMessages]);
 
   useEffect(() => {
     socket.on('received_message', (data) => {
@@ -89,12 +89,13 @@ function Main() {
       {
         roomno ? <div className='main'>
           <h3>Room {room} messages</h3>
-          <div className='message-section' ref={divRef}>
+          <div className='message-section' >
           {
             storedMessages.map((item, idx) => {
               return <p key={idx} className={item.author} >{item.message}</p>
             })
           }
+          <div ref={divRef}/>
           </div>
           <div id='message-send' >
           <input placeholder='type message' value={message} style={{ height: '30px', width: '250px' }} onChange={(e) => { setMessage(e.target.value) }} />
